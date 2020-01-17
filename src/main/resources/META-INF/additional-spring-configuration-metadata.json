@@ -1,0 +1,14 @@
+{
+  "properties": [
+    {
+      "name": "service.authAddress",
+      "type": "java.lang.String",
+      "description": "Description for service.authAddress."
+    },
+    {
+      "name": "service.transactionAddress",
+      "type": "java.lang.String",
+      "description": "Description for service.transactionAddress."
+    }
+  ]
+}
