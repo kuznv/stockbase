@@ -2,6 +2,6 @@ package base.service;
 
 import base.data.IPaymentData;
 
-public interface IPaymentService {
-    void pay(IPaymentData paymentData) throws PaymentServiceException;
+public interface IPaymentService<D extends IPaymentData> {
+    void pay(D paymentData) throws PaymentServiceException;
 }

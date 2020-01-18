@@ -1,11 +1,11 @@
 package stockbase.impl.authentification;
 
-import stockbase.interfaces.authentification.ICPaymentAuthenticationData;
+import stockbase.interfaces.authentification.ICAuthenticationData;
 
-public class CPaymentAuthenticationData implements ICPaymentAuthenticationData {
+public class CAuthenticationData implements ICAuthenticationData {
     private final String authorization;
 
-    public CPaymentAuthenticationData(String authorization) {
+    public CAuthenticationData(String authorization) {
         this.authorization = authorization;
     }
 
