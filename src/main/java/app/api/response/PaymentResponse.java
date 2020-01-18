@@ -1,4 +1,4 @@
-package crypto.api.response;
+package app.api.response;
 
 public class PaymentResponse {
     private String address;

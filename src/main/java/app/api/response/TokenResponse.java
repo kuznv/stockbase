@@ -1,4 +1,4 @@
-package crypto.api.response;
+package app.api.response;
 
 public class TokenResponse {
     private String token_type;

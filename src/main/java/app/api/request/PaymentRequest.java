@@ -1,4 +1,4 @@
-package crypto.api.request;
+package app.api.request;
 
 public class PaymentRequest {
     private Coin coin;

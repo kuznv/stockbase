@@ -1,10 +1,10 @@
-package crypto;
+package app;
 
-import crypto.api.request.PaymentRequest;
-import crypto.api.request.PaymentRequest.Coin;
-import crypto.api.request.TokenRequest;
-import crypto.api.response.PaymentResponse;
-import crypto.api.response.TokenResponse;
+import app.api.request.PaymentRequest;
+import app.api.request.PaymentRequest.Coin;
+import app.api.request.TokenRequest;
+import app.api.response.PaymentResponse;
+import app.api.response.TokenResponse;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
