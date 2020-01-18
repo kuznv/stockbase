@@ -11,7 +11,7 @@
     <groupId>com.example</groupId>
     <artifactId>Crypto</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>app</name>
+    <name>stockbase.app</name>
     <description>Spring Boot</description>
 
     <properties>
