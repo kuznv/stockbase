@@ -1,5 +1,7 @@
 package stockbase.impl.api.notification;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonGetter;
 import stockbase.interfaces.api.notification.INotificationRequest;
 
 public class NotificationRequest implements INotificationRequest {
@@ -9,6 +11,7 @@ public class NotificationRequest implements INotificationRequest {
     private final String address;
     private final String crypto;
 
+    @JsonCreator
     public NotificationRequest(String signature, String clientTransactionId, String status, String address, String crypto) {
         this.signature = signature;
         this.clientTransactionId = clientTransactionId;
@@ -21,6 +24,7 @@ public class NotificationRequest implements INotificationRequest {
         return signature;
     }
 
+    @JsonGetter("client_transaction_id")
     @Override public String getClientTransactionId() {
         return clientTransactionId;
     }

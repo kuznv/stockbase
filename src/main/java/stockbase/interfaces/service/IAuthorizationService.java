@@ -1,8 +1,8 @@
 package stockbase.interfaces.service;
 
 import stockbase.impl.api.authorization.AuthorizationRequest;
-import stockbase.impl.api.authorization.AuthorizationResponse;
+import stockbase.interfaces.api.authorization.IAuthorizationResponse;
 
 public interface IAuthorizationService {
-    AuthorizationResponse authorize(AuthorizationRequest authorization);
+    IAuthorizationResponse authorize(AuthorizationRequest authorization);
 }
