@@ -1,9 +1,8 @@
 package stockbase.impl.data;
 
-import stockbase.interfaces.data.ICPaymentData;
 import stockbase.interfaces.data.ICoin;
 
-public class CPaymentData implements ICPaymentData {
+public class CPaymentData {
     private ICoin coin;
     private Double amount;
     private String transactionId;
@@ -14,15 +13,15 @@ public class CPaymentData implements ICPaymentData {
         this.transactionId = transactionId;
     }
 
-    @Override public ICoin getCoin() {
+    public ICoin getCoin() {
         return coin;
     }
 
-    @Override public Double getAmount() {
+    public Double getAmount() {
         return amount;
     }
 
-    @Override public String getTransactionId() {
+    public String getTransactionId() {
         return transactionId;
     }
 }
