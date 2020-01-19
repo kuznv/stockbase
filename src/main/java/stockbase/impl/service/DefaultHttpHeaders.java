@@ -5,7 +5,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Component;
 
 @Component
-public class DefaultHttpHeaders {
+class DefaultHttpHeaders {
 
     @Bean HttpHeaders getHttpHeaders() {
         HttpHeaders headers = new HttpHeaders();

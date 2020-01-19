@@ -7,8 +7,10 @@ import stockbase.impl.api.notification.NotificationRequest;
 import stockbase.impl.api.notification.NotificationResponse;
 import stockbase.impl.api.transaction.CreateTransactionRequest;
 import stockbase.impl.api.transaction.CreateTransactionResponse;
+import stockbase.interfaces.api.authorization.AuthorizationException;
 import stockbase.interfaces.api.authorization.IAuthorizationResponse;
 import stockbase.interfaces.api.notification.NotificationException;
+import stockbase.interfaces.api.transaction.TransactionException;
 import stockbase.interfaces.authentification.ICAuthenticationData;
 import stockbase.interfaces.service.IPaymentService;
 
@@ -26,11 +28,12 @@ public class PaymentService implements IPaymentService {
         this.notificationService = notificationService;
     }
 
-    @Override public IAuthorizationResponse authorize(AuthorizationRequest authorization) {
+    @Override public IAuthorizationResponse authorize(AuthorizationRequest authorization) throws AuthorizationException {
         return authorizationService.authorize(authorization);
     }
 
-    @Override public CreateTransactionResponse createTransaction(CreateTransactionRequest createTransaction, ICAuthenticationData authenticationData) {
+    @Override public CreateTransactionResponse createTransaction(CreateTransactionRequest createTransaction,
+                                                                 ICAuthenticationData authenticationData) throws TransactionException {
         return transactionService.createTransaction(createTransaction, authenticationData);
     }
 

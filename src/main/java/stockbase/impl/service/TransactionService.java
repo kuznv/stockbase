@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import stockbase.impl.api.transaction.CreateTransactionRequest;
 import stockbase.impl.api.transaction.CreateTransactionResponse;
+import stockbase.interfaces.api.transaction.TransactionException;
 import stockbase.interfaces.authentification.ICAuthenticationData;
 import stockbase.interfaces.service.ITransactionService;
 
@@ -23,10 +24,14 @@ public class TransactionService implements ITransactionService {
         this.context = context;
     }
 
-    @Override public CreateTransactionResponse createTransaction(CreateTransactionRequest createTransaction, ICAuthenticationData authenticationData) {
-        HttpHeaders httpHeaders = context.getBean(HttpHeaders.class);
-        httpHeaders.setBearerAuth(authenticationData.getAuthorization());
-        HttpEntity<CreateTransactionRequest> httpEntity = new HttpEntity<>(createTransaction, httpHeaders);
-        return restTemplate.exchange(transactionAddress, HttpMethod.POST, httpEntity, CreateTransactionResponse.class).getBody();
+    @Override public CreateTransactionResponse createTransaction(CreateTransactionRequest createTransaction, ICAuthenticationData authenticationData) throws TransactionException {
+        try {
+            HttpHeaders httpHeaders = context.getBean(HttpHeaders.class);
+            httpHeaders.setBearerAuth(authenticationData.getAuthorization());
+            HttpEntity<CreateTransactionRequest> httpEntity = new HttpEntity<>(createTransaction, httpHeaders);
+            return restTemplate.exchange(transactionAddress, HttpMethod.POST, httpEntity, CreateTransactionResponse.class).getBody();
+        } catch (Exception e) {
+            throw new TransactionException(e);
+        }
     }
 }
