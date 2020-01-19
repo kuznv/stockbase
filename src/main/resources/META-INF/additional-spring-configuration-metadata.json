@@ -14,6 +14,16 @@
       "name": "service.notificationAddress",
       "type": "java.lang.String",
       "description": "Description for service.notificationAddress."
+    },
+    {
+      "name": "test.clientId",
+      "type": "java.lang.String",
+      "description": "Description for test.clientId."
+    },
+    {
+      "name": "test.clientSecret",
+      "type": "java.lang.String",
+      "description": "Description for test.clientSecret."
     }
   ]
 }
