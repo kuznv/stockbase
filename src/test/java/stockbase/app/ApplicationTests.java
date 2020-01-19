@@ -11,8 +11,10 @@ import stockbase.impl.api.authorization.AuthorizationRequest;
 import stockbase.impl.api.notification.NotificationResponse;
 import stockbase.impl.api.transaction.CreateTransactionRequest;
 import stockbase.impl.authentification.CAuthenticationData;
+import stockbase.interfaces.api.authorization.AuthorizationException;
 import stockbase.interfaces.api.authorization.IAuthorizationResponse;
 import stockbase.interfaces.api.notification.NotificationException;
+import stockbase.interfaces.api.transaction.TransactionException;
 import stockbase.interfaces.authentification.ICAuthenticationData;
 import stockbase.interfaces.service.IPaymentService;
 
@@ -39,7 +41,7 @@ class ApplicationTests {
 
     @Test
     @BeforeEach
-    void authorizationTest() {
+    void authorizationTest() throws AuthorizationException {
         AuthorizationRequest request = new AuthorizationRequest(clientId, clientSecret);
         IAuthorizationResponse authorizationResponse = paymentService.authorize(request);
         String accessToken = authorizationResponse.getAccessToken();
@@ -49,7 +51,7 @@ class ApplicationTests {
 
     @Order(1)
     @Test
-    void transactionTest() {
+    void transactionTest() throws TransactionException {
         transactionId = String.valueOf(new Random().nextInt());
         CreateTransactionRequest createTransaction = new CreateTransactionRequest("eth", 20.0, transactionId);
         paymentService.createTransaction(createTransaction, authenticationData);
