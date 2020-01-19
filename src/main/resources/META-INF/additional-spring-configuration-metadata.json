@@ -9,6 +9,11 @@
       "name": "service.transactionAddress",
       "type": "java.lang.String",
       "description": "Description for service.transactionAddress."
+    },
+    {
+      "name": "service.notificationAddress",
+      "type": "java.lang.String",
+      "description": "Description for service.notificationAddress."
     }
   ]
 }

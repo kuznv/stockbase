@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import stockbase.impl.api.authorization.AuthorizationRequest;
-import stockbase.impl.api.notification.NotificationRequest;
 import stockbase.impl.api.notification.NotificationResponse;
 import stockbase.impl.api.transaction.CreateTransactionRequest;
 import stockbase.impl.authentification.CAuthenticationData;
@@ -31,9 +30,11 @@ class ApplicationTests {
     private ICAuthenticationData authenticationData;
     private String transactionId;
 
+    private final AppRestController restController;
 
-    @Autowired public ApplicationTests(IPaymentService paymentService) {
+    @Autowired public ApplicationTests(IPaymentService paymentService, AppRestController restController) {
         this.paymentService = paymentService;
+        this.restController = restController;
     }
 
     @Test
@@ -57,15 +58,14 @@ class ApplicationTests {
     @Order(2)
     @Test
     void notificationTest() throws NotificationException {
-        NotificationRequest notificationRequest = new NotificationRequest(
-                "abc",
+        NotificationResponse notificationResponse = restController.notify(
+                "123",
                 transactionId,
                 "success",
                 "123",
                 "eth"
         );
-        NotificationResponse notificationResponse = paymentService.onNotificationRequest(notificationRequest);
+
         Assertions.assertEquals("success", notificationResponse.getResponse());
     }
-
 }
