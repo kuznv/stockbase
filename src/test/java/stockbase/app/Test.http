@@ -1,0 +1,31 @@
+POST http://localhost:8080/notify?client_transaction_id={{$randomInt}}&status=success&address=123&crypto=eth
+Signature: 123
+
+###
+
+POST https://stg-gateway.stockbase.io/api/payment/create
+Authorization: Bearer //TODO: insert here
+Content-Type: application/json
+Accept: application/json
+
+{
+  "coin": "eth",
+  "usd": 20,
+  "client_transaction_id": {{$randomInt}}
+}
+
+###
+
+POST https://stg-gateway.stockbase.io/oauth/token
+Content-Type: application/json
+Accept: application/json;
+
+{
+  "grant_type": "client_credentials",
+  "client_id": //TODO: insert here,
+  "client_secret"
+  :
+  //TODO: insert here,
+}
+
+###
